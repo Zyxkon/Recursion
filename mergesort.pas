@@ -1,6 +1,7 @@
 program mergesort;
 uses crt;
 var 
+    {This is an example array.}
     arr: array of integer = (3, 2, 1, 7, 6, 9, 8, 4, 5, 10, 25, 84, 44, 75);
     i: integer;
 procedure merge(var input_array: array of integer; l: integer; m: integer; r: integer);
