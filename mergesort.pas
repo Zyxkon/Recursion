@@ -1,9 +1,7 @@
-program mergesort;
-uses crt;
-var 
-    {This is an example array.}
-    arr: array of integer = (3, 2, 1, 7, 6, 9, 8, 4, 5, 10, 25, 84, 44, 75);
-    i: integer;
+unit mergesort;
+interface
+procedure MergeSort(var input_array: array of integer; l: integer; r: integer);
+implementation
 procedure merge(var input_array: array of integer; l: integer; m: integer; r: integer);
     var
         i: integer;
@@ -56,23 +54,16 @@ procedure merge(var input_array: array of integer; l: integer; m: integer; r: in
                 k += 1;
             end;
     end;
-procedure mergeSort(var input_array: array of integer; l: integer; r: integer);
+procedure MergeSort(var input_array: array of integer; l: integer; r: integer);
     var 
         m: integer;
     begin
         if l < r then
             begin
                 m := l+round((r-l)/2);
-                mergeSort(input_array, l, m);
-                mergeSort(input_array, m+1, r);
+                MergeSort(input_array, l, m);
+                MergeSort(input_array, m+1, r);
                 merge(input_array, l, m, r);
             end;
     end;
-begin
-    writeln('Before being sorted:');
-    for i:=0 to length(arr)-1 do write(' ', arr[i]);
-    mergeSort(arr, 0, length(arr)-1);
-    writeln();
-    writeln('After being sorted:');
-    for i:=0 to length(arr)-1 do write(' ', arr[i]);
 end.
