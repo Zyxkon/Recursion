@@ -1,6 +1,6 @@
 unit mergesort;
 interface
-procedure MergeSort(var input_array: array of integer; l: integer; r: integer);
+procedure mergeSort(var input_array: array of integer; l: integer; r: integer);
 implementation
 procedure merge(var input_array: array of integer; l: integer; m: integer; r: integer);
     var
@@ -54,15 +54,15 @@ procedure merge(var input_array: array of integer; l: integer; m: integer; r: in
                 k += 1;
             end;
     end;
-procedure MergeSort(var input_array: array of integer; l: integer; r: integer);
+procedure mergeSort(var input_array: array of integer; l: integer; r: integer);
     var 
         m: integer;
     begin
         if l < r then
             begin
                 m := l+round((r-l)/2);
-                MergeSort(input_array, l, m);
-                MergeSort(input_array, m+1, r);
+                mergeSort(input_array, l, m);
+                mergeSort(input_array, m+1, r);
                 merge(input_array, l, m, r);
             end;
     end;
